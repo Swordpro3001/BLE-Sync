@@ -1,0 +1,46 @@
+<div class="list-container">
+  <header class="app-header">
+    <h1>BLE Sync</h1>
+    <p class="subtitle">Deine lokale Liste</p>
+  </header>
+
+  <form class="input-row" (ngSubmit)="addItem()">
+    <input
+      type="text"
+      placeholder="Neuen Eintrag hinzufügen..."
+      [ngModel]="newItemText()"
+      (ngModelChange)="newItemText.set($event)"
+      name="newItem"
+      autocomplete="off"
+    />
+    <button type="submit" class="btn-add" [disabled]="!newItemText().trim()">+</button>
+  </form>
+
+  @if (items().length === 0) {
+    <div class="empty-state">
+      <span class="empty-icon">📋</span>
+      <p>Keine Einträge vorhanden</p>
+    </div>
+  } @else {
+    <ul class="item-list">
+      @for (item of items(); track item.id) {
+        <li class="item" [class.done]="item.done">
+          <label class="item-content">
+            <input
+              type="checkbox"
+              [checked]="item.done"
+              (change)="toggleItem(item.id)"
+            />
+            <span class="item-text">{{ item.text }}</span>
+          </label>
+          <button class="btn-delete" (click)="removeItem(item.id)" aria-label="Löschen">✕</button>
+        </li>
+      }
+    </ul>
+
+    <div class="list-footer">
+      <span>{{ items().length }} Einträge</span>
+      <button class="btn-clear" (click)="clearAll()">Alle löschen</button>
+    </div>
+  }
+</div>
