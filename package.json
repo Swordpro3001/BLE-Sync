@@ -1,0 +1,22 @@
+{
+  "name": "ble-sync",
+  "version": "1.0.0",
+  "description": "Angular-based Progressive Web App (PWA) that uses the Capacitor Bluetooth Low Energy (BLE) API to sync data directly between nearby devices on Android and iOS. The project focuses on secure, serverless peer-to-peer communication and reliable offline data transfer.",
+  "main": "index.js",
+  "scripts": {
+    "test": "start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Swordpro3001/BLE-Sync.git"
+  },
+  "author": "Franz Puerto",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Swordpro3001/BLE-Sync/issues"
+  },
+  "homepage": "https://github.com/Swordpro3001/BLE-Sync#readme",
+  "dependencies": {
+    "ng": "^0.0.0"
+  }
+}
